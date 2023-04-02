@@ -1,0 +1,53 @@
+*,
+*::after,
+*::before{
+  box-sizing: border-box;
+}
+
+.App {
+  color: #fff;
+  font-family: Arial;
+  width: 300px;
+  height: 578px;
+  background-color: #000;
+  border-radius: 30px;
+  margin: 100px auto 0;
+  box-shadow: 4px 4px 4px #4f4f4f;
+  padding: 18px;
+  position: relative;
+}
+
+.calc__screen {
+  font-size: 50px;
+  height: 125px;
+  padding: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-bottom: 25px;
+  position: relative;
+  transition: all .2s;
+}
+
+.small__font{
+  font-size: 29px;
+}
+
+.buttons__special{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12px 0;
+}
+
+hr {
+  margin: 5px 0 20px 0;
+  background-color: #fff;
+  border: none;
+}
+
+.buttons__inner{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+

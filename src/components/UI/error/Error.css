@@ -1,0 +1,13 @@
+.error {
+    width: 243px;
+    background-color: rgba(255, 255, 255, 0.882);
+    position: absolute;
+    top: 10px;
+    left: 11px;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 13px;
+    line-height: 20px;
+    color: #000;
+    text-align: center;
+}

@@ -1,0 +1,26 @@
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 100,
+  'GRAD' 500,
+  'opsz' 24;
+  width: 24px;
+  height: 24px;
+  color: #ff9900;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: ease .1s;
+  user-select: none;
+
+}
+
+.material-symbols-outlined:hover{
+  filter: brightness(120%);
+}
+
+.material-symbols-outlined:active{
+  filter: brightness(80%);
+  font-size: 22px;
+}
