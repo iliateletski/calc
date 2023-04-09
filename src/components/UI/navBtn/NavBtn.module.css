@@ -1,0 +1,21 @@
+.navBtn{
+    border: none;
+    color: #fff;
+    padding: 7px;
+    background-color: #000;
+    transition: all .1s;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.navBtn:hover{
+    filter: brightness(120%);
+    background-color: #333;
+}
+
+.navBtn.active{
+    border-radius: 16px;
+    background-color: #333;
+    color: #fff;
+    display: inline-block;
+}

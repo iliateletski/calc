@@ -25,7 +25,6 @@
   align-items: flex-end;
   justify-content: flex-end;
   margin-bottom: 25px;
-  position: relative;
   transition: all .2s;
 }
 
@@ -49,5 +48,31 @@ hr {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.converter__header{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.Navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.converter__screen{
+  height: 45px;
+  text-align: right;
+  font-size: 30px;
+  line-height: 58px;
 }
 

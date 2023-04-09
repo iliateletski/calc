@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./MySelect.module.css"
 
-const MySelect = (options, value, onChange) => {
+const MySelect = ({options, value, onChange}) => {
 
     return(
         <select 
@@ -9,14 +9,14 @@ const MySelect = (options, value, onChange) => {
             onChange={ e => onChange(e.target.value)}
             className={classes.mySelect}    
         >
-            {options.map(option => 
+            {options.map((option, index) => 
                 
-                <options
+                <option
                     value={option.value}
                     key={option.value}
                 >
                     {option.name}
-                </options>
+                </option>
 
             )}
 

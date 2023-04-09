@@ -22,5 +22,9 @@
 
 .material-symbols-outlined:active{
   filter: brightness(80%);
-  font-size: 22px;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 100,
+  'GRAD' 500,
+  'opsz' 20;
 }

@@ -32,10 +32,6 @@ export class Formula{
             return getFormula;
         }
     }
-    
-
-    
-
 }
 
 

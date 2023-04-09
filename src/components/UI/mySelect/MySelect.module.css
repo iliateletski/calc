@@ -2,5 +2,6 @@
     background-color: #000;
     color: #fff;
     border: none;
-    cursor: pointer;   
+    cursor: pointer;  
+    outline: none; 
 }
