@@ -1,6 +1,9 @@
-export const changeValue = (state, setState, showError) => {
+export const changeValue = (state, setState, showError, clearAll) => {
 
     const change = (value) => {
+
+        if(state.finish) clearAll();
+
         if(state.result.length === 15){
             showError('errorLengthString');
             return;
@@ -8,36 +11,36 @@ export const changeValue = (state, setState, showError) => {
 
         if(state.isValueA) {
             if(state.valueA === '0' && value !== '.') {
-                setState({
-                    ...state, 
+                setState(prev => ({
+                    ...prev, 
                     valueA: value, 
-                    result: value
-                });
+                    result: value,
+                }));
                 return;
             }
 
-            setState({
-                ...state, 
-                valueA: state.valueA + value, 
-                result: state.valueA + value
-            });
+            setState(prev => ({
+                ...prev,
+                valueA: prev.valueA + value, 
+                result: prev.valueA + value,
+            }))   
         }
 
         if(state.isValueB) {
             if(state.valueB === '0' && value !== '.') {
-                setState({
-                    ...state, 
+                setState(prev => ({
+                    ...prev,
                     valueB: value, 
-                    result: value
-                });
+                    result: value,
+                }))
                 return;
             }
 
-            setState({
-                ...state, 
-                valueB: state.valueB + value, 
-                result: state.valueB + value
-            });
+            setState(prev => ({
+                ...prev,
+                valueB: prev.valueB + value, 
+                result: prev.valueB + value,
+            })) 
         }
     }
 

@@ -1,6 +1,8 @@
 export const plusMinusBtn = (state, setState) => {
     
-    const plusMinus = () => {
+    const plusMinus = (noActive) => {
+        
+        if(noActive === true) return;
 
         if(state.isValueA) {
             state.valueA.includes('-')

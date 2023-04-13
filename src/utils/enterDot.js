@@ -1,6 +1,11 @@
-export const enterDot = (state) => {
+
+
+export const enterDot = (state, clearAll) => {
 
     const enterDot = (value, collback) => {
+
+        if(state.finish) clearAll();
+
         if(state.isValueA && !state.valueA.includes('.')) {
             state.valueA ? collback(value) : collback('0' + value);
             return;

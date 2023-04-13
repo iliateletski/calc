@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useEffect } from "react";
 import { useError } from "../hooks/useError";
 import CalcScreen from "../components/CalcScreen";
-import Keyboard from "../components/Keyboard";
+import CalcKeyboard from "../components/CalcKeyboard";
 import { clear } from "../utils/clear";
 
 const Calculator = () => {
@@ -11,6 +11,7 @@ const Calculator = () => {
     const[calc, setCalc] = useState({
         isValueA: true,
         isValueB: false,
+        finish: false,
         valueA: '',
         valueB: '',
         sign: '',
@@ -34,10 +35,11 @@ const Calculator = () => {
             >
                 {calc.result}
             </CalcScreen>
-            <Keyboard 
+            <CalcKeyboard 
                 calc={calc}
                 setCalc={setCalc}
                 showError={showError}
+                clearAll={clearAll}
             />
         </div>
     )

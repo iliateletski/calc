@@ -10,7 +10,6 @@ const CalcScreen = ({children, error}) => {
     useEffect(() => {
         if(children.length >= 9 && !className) changeFontSize('small__font');
         if(children.length < 9 && className) changeFontSize('');
-        // children.length >= 9 ? changeFontSize('small__font') : changeFontSize('');
     }, [children]);
     
 

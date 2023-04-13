@@ -10,4 +10,5 @@
     line-height: 20px;
     color: #000;
     text-align: center;
+    z-index: 1;
 }

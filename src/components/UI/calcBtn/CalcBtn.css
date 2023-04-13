@@ -36,6 +36,13 @@
     font-size: 20px;
 }
 
+.btn.no-active,
+.btn.no-active:hover,
+.btn.no-active:active{
+    filter: brightness(50%);
+    font-size: 24px;
+}
+
 .btn.material-symbols-outlined {
     font-variation-settings:
     'FILL' 0,

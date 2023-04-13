@@ -2,10 +2,9 @@ import { useEffect, useState } from "react"
 import { ConverterFormula } from "../formula/ConverterFormula"
 
 export const useConverterFormula = (converter, activeUnits) => {
-    const[formula, setFormula] = useState({formula: ConverterFormula.getConverterFormula(activeUnits.unitA)})
+    const[formula, setFormula] = useState({}) // formula: ConverterFormula.getConverterFormula(activeUnits.unitA)
     
     useEffect(() => {
-        console.log('отработала формула')
         if(converter.isValueA) {
             setFormula({
                 formula: ConverterFormula.getConverterFormula(activeUnits.unitA)
@@ -17,7 +16,7 @@ export const useConverterFormula = (converter, activeUnits) => {
                 formula: ConverterFormula.getConverterFormula(activeUnits.unitB)
             });
         }
-    }, [converter.isValueA, activeUnits])
+    }, [converter.isValueA, activeUnits]);
     
     return formula;
 }

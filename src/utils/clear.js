@@ -5,6 +5,7 @@ export const clear = (state, setState) => {
             ...state,
             isValueA: true,
             isValueB: false,
+            finish: false,
             valueA: '',
             valueB: '',
             sign: '',
