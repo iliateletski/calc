@@ -9,7 +9,9 @@ const BackspaceBtn = ({children, onClick}) => {
             className='material-symbols-outlined special'
             onClick={onClick}
         >
-            {children}
+            <span>
+                {children}
+            </span>
         </button>
     )
 }

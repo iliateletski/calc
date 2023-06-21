@@ -8,7 +8,6 @@ const Navbar = ({changeUnits}) => {
         {name: 'Температура', value: 'temperature'},
         {name: 'Время', value: 'time'},
         {name: 'Скорость', value: 'speed'},
-        {name: 'Валюта', value: 'currency'},
     ];
 
     const[activeBtn, setActiveBtn] = useState('weight');

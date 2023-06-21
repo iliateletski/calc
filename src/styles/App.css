@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+a,
+button {
+  outline: none;
+}
+
+
 .App {
   color: #fff;
   font-family: Arial;
@@ -12,7 +18,7 @@
   background-color: #000;
   border-radius: 30px;
   margin: 100px auto 0;
-  box-shadow: 4px 4px 4px #4f4f4f;
+  box-shadow: 4px 4px 4px #4f4f4f; 
   padding: 18px;
   position: relative;
 }
