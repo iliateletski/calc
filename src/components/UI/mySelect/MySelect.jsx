@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import classes from "./MySelect.module.css"
 
 const MySelect = ({options, value, onChange}) => {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import MySelect from "./UI/mySelect/MySelect"
 
 const ConverterScreen = ({converter, setConverter, units, activeUnits, setActiveUnits, classes}) => {

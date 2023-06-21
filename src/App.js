@@ -1,11 +1,10 @@
 import React from 'react';
-import { Route, Routes, Link } from "react-router-dom"
+import { Route, Routes} from "react-router-dom"
 import {routes} from './router/routes'
 import { useState } from 'react';
 import { CalcContext } from './context/context';
 
 function App() {
-
   const[isCalc, setIsCalc] = useState(true);
 
   return (
