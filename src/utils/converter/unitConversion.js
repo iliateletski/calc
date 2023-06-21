@@ -19,7 +19,7 @@ export const unitConversion = (converter, setConverter, activeUnits, formula) =>
             });
         }
         
-        if(converter.isValueA && !converter.valueA || converter.isValueB && !converter.valueB) {
+        if((converter.isValueA && !converter.valueA) || (converter.isValueB && !converter.valueB)) {
             setConverter({
                 ...converter,
                 valueA: '',
