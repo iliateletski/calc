@@ -25,7 +25,6 @@ const Converter = () => {
         valueB: '',
         result: '0',
     });
-    console.log(converter)
 
     const[classes, setClasses] = useState({
         entryFieldA: '',
