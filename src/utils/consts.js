@@ -1,2 +1,2 @@
-export const CALC_ROUTE = '/'
-export const CONVERTER_ROURE = '/converter'
+export const CALC_ROUTE = '/calc'
+export const CONVERTER_ROURE = '/calc/converter'

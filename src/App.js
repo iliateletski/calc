@@ -1,8 +1,9 @@
 import React from 'react';
-import { Route, Routes} from "react-router-dom"
+import { Navigate, Route, Routes} from "react-router-dom"
 import {routes} from './routes/routes'
 import { useState } from 'react';
 import { CalcContext } from './context/context';
+import { CALC_ROUTE } from './utils/consts';
 
 function App() {
   const[isCalc, setIsCalc] = useState(true);
@@ -23,6 +24,7 @@ function App() {
                 element={route.element}
               />
             )}
+            <Route path='*' element={<Navigate to={CALC_ROUTE}/>}/>
           </Routes>
         </CalcContext.Provider>
     </div>
