@@ -25,6 +25,7 @@ const Converter = () => {
         valueB: '',
         result: '0',
     });
+    console.log(converter)
 
     const[classes, setClasses] = useState({
         entryFieldA: '',
@@ -60,8 +61,8 @@ const Converter = () => {
     const changeUnits = (value) => {
         const selectOptions = getSelectOptions(value);
         setUnits(selectOptions);
-        toggleActiveBtn(value);
         clearAll();
+        toggleActiveBtn(value);
     }
     
     return (
