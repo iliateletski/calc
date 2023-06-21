@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes} from "react-router-dom"
-import {routes} from './router/routes'
+import {routes} from './routes/routes'
 import { useState } from 'react';
 import { CalcContext } from './context/context';
 
