@@ -5,6 +5,7 @@ import { useError } from "../hooks/useError";
 import CalcScreen from "../components/CalcScreen";
 import CalcKeyboard from "../components/CalcKeyboard";
 import { clear } from "../utils/clear";
+import { ERROR_RESULT } from "../utils/consts";
 
 const Calculator = () => {
     
@@ -19,12 +20,12 @@ const Calculator = () => {
     });
 
     const[showError, error] = useError();
-    const clearAll = clear(calc, setCalc);
+    const clearAll = clear(setCalc);
     
     useEffect(() => {
         if(calc.result.length > 15){
             clearAll();
-            showError('errorResult');
+            showError(ERROR_RESULT);
         }        
     },[calc.result]);
 

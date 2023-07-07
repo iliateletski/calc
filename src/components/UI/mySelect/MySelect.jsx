@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./MySelect.module.css"
+import "./MySelect.css"
 
 const MySelect = ({options, value, onChange}) => {
 
@@ -7,9 +7,9 @@ const MySelect = ({options, value, onChange}) => {
         <select 
             value={value}
             onChange={ e => onChange(e.target.value)}
-            className={classes.mySelect}    
+            className='mySelect'    
         >
-            {options.map((option, index) => 
+            {options.map((option) => 
                 
                 <option
                     value={option.value}

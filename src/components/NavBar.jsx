@@ -1,14 +1,8 @@
 import React, { useState } from "react";
+import { NAV_BUTTONS } from "../utils/consts";
 import NavBtn from "./UI/navBtn/NavBtn";
 
 const Navbar = ({changeUnits}) => {
-
-    const navButtons = [
-        {name: 'Масса', value: 'weight'},
-        {name: 'Температура', value: 'temperature'},
-        {name: 'Время', value: 'time'},
-        {name: 'Скорость', value: 'speed'},
-    ];
 
     const[activeBtn, setActiveBtn] = useState('weight');
 
@@ -18,7 +12,7 @@ const Navbar = ({changeUnits}) => {
 
     return (
         <div className="Navbar">
-            {navButtons.map(btn =>
+            {NAV_BUTTONS.map(btn =>
                     <NavBtn
                         onClick={value => {
                             tabClick(value)

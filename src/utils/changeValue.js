@@ -1,3 +1,5 @@
+import { ERROR_LENGTH_STRING } from "./consts";
+
 export const changeValue = (state, setState, showError, clearAll) => {
 
     const change = (value) => {
@@ -5,7 +7,7 @@ export const changeValue = (state, setState, showError, clearAll) => {
         if(state.finish) clearAll();
 
         if(state.result.length === 15){
-            showError('errorLengthString');
+            showError(ERROR_LENGTH_STRING);
             return;
         }
 

@@ -1,36 +1,28 @@
 
-export const changeActiveBtn = (state, setState) => {
+export const changeActiveBtn = (setState) => {
     
     const change = (value) => {
-        if(value === '↑') {
-            setState({
-                ...state,
-                isValueA: true,
-                isValueB: false,
-            });
-            return;
-        }
 
-        if(value === '↓') {
-            setState({
-                ...state,
-                isValueA: false,
-                isValueB: true,
-            });
+        if(value === '↓' || value === '↑') {
+            setState(prev => ({
+                ...prev,
+                isValueA: value === '↑' ? true : false,
+                isValueB: value === '↓' ? true : false,
+            }));
             return;
         }
 
         if(value === 'temperature') {
-            setState({
-                ...state,
+            setState(prev => ({
+                ...prev,
                 isPlusMinus: false,
-            });
+            }));
             return;
         } else {
-            setState({
-                ...state,
+            setState(prev => ({
+                ...prev,
                 isPlusMinus: true,
-            });
+            }));
             return;
         }
     }

@@ -70,6 +70,10 @@ hr.active{
   margin-bottom: 12px;
 }
 
+.converter__title{
+  margin-left: 10px;
+}
+
 .Navbar{
   display: flex;
   justify-content: space-between;

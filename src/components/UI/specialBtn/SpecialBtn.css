@@ -1,30 +1,20 @@
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 100,
-  'GRAD' 500,
-  'opsz' 24;
+.special_btn {
   width: 24px;
-  height: 24px;
-  color: #ff9900;
+  height: 28px;
   padding: 0;
-  background-color: transparent;
+  background: transparent;
   border: none;
-  cursor: pointer;
-  transition: ease .1s;
-  user-select: none;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .1s;
 }
 
-.material-symbols-outlined:hover{
+.special_btn:hover{
   filter: brightness(120%);
 }
 
-.material-symbols-outlined:active{
+.special_btn:active{
   filter: brightness(80%);
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 100,
-  'GRAD' 500,
-  'opsz' 20;
+  transform: scale(0.8);
 }

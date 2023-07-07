@@ -5,7 +5,8 @@ export const backspaceBtn = (state, setState) => {
             setState({
                 ...state,
                 valueA: state.valueA.slice(0, -1), 
-                result: state.valueA.slice(0, -1)
+                result: state.valueA.slice(0, -1),
+                finish: false
             });
         }
 

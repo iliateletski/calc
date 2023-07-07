@@ -1,3 +1,4 @@
+import { ERROR_INVALID_FORMAT } from "../consts";
 import { calculate } from "./calculate";
 
 export const changeCalcSign = (state, setState, showError) => {
@@ -5,8 +6,8 @@ export const changeCalcSign = (state, setState, showError) => {
     const calculation = calculate(state, setState, showError);
 
     const changeSign = (value) => {
-        if(!state.valueA) {
-            showError('errorInvalidFormat');
+        if(!state.valueA || state.valueA === '-' || state.valueB === '-') {
+            showError(ERROR_INVALID_FORMAT);
             return;
         }
 

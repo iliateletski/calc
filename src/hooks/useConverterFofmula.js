@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { ConverterFormula } from "../formula/ConverterFormula"
+import { ConverterFormula } from "../formulas/ConverterFormula"
 
 export const useConverterFormula = (converter, activeUnits) => {
-    const[formula, setFormula] = useState({}) // formula: ConverterFormula.getConverterFormula(activeUnits.unitA)
+    const[formula, setFormula] = useState({});
     
     useEffect(() => {
         if(converter.isValueA) {

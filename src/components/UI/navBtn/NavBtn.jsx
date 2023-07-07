@@ -1,9 +1,9 @@
-import classes from "./NavBtn.module.css"
+import "./NavBtn.css"
 
 const NavBtn = ({children, isActive, value, onClick}) => {
     
-    const cssClass = [classes.navBtn];
-    if(isActive) cssClass.push(classes.active);
+    const cssClass = ['navBtn'];
+    if(isActive) cssClass.push('active');
      
     return (
         <button

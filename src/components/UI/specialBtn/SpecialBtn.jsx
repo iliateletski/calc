@@ -5,12 +5,10 @@ const BackspaceBtn = ({children, onClick}) => {
 
     return (
         <button 
-            className='material-symbols-outlined special'
+            className='special_btn'
             onClick={onClick}
         >
-            <span>
-                {children}
-            </span>
+            {children}
         </button>
     )
 }
