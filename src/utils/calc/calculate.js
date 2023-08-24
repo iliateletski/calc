@@ -1,63 +1,44 @@
-import { CalcFormula } from "../../formulas/CalcFormula";
-import { clear } from "../clear";
-import { ERROR_DIVISION_BY_ZERO, ERROR_INVALID_FORMAT, ERROR_RESULT } from "../consts";
-import { roundNumber } from "../roundNumber";
+import { CalcFormula } from '../../formulas/CalcFormula'
+import {
+	ERROR_DIVISION_BY_ZERO,
+	ERROR_INVALID_FORMAT,
+	ERROR_RESULT
+} from '../consts'
+import { roundNumber } from '../roundNumber'
 
+export const calculation = ({ state, payload, initialState }) => {
+	if (payload === '=' && !state.valueB) return
 
-export const calculate = (state, setState, showError) => {
+	if (state.valueA === '-' || state.valueB === '-') {
+		state.typeError = ERROR_INVALID_FORMAT
+		return
+	}
 
-    const clearAll = clear(setState);
-    
-    const calculation = (value) => { 
+	if (payload === '%') {
+		if (
+			!state.valueA ||
+			(state.sign && !state.valueB) ||
+			(payload === '%' && state.finish)
+		) {
+			state.typeError = ERROR_INVALID_FORMAT
+			return
+		}
+	}
 
-        if(value === '=' && !state.valueB) return;
+	if (state.sign === '/' && state.valueB === '0') {
+		return { ...initialState, typeError: ERROR_DIVISION_BY_ZERO }
+	}
 
-        if(state.valueA === '-' || state.valueB === '-') {
-            showError(ERROR_INVALID_FORMAT);
-            return;
-        }
-        
-        if(value === '%') {
-            if( !state.valueA || (state.sign && !state.valueB) || (value === '%' && state.finish) ) {
-                showError(ERROR_INVALID_FORMAT);
-                return;
-            }
-        }
+	const getFormula = CalcFormula.getCalcFormula(payload)
+	const result = roundNumber(getFormula(state.sign, state.valueA, state.valueB))
 
-        if(state.sign === '/' && state.valueB === '0') {
-            clearAll();
-            showError(ERROR_DIVISION_BY_ZERO);
-            return;
-        }
+	if (result.length > 15) {
+		return { ...initialState, typeError: ERROR_RESULT }
+	}
 
-        const getFormula = CalcFormula.getCalcFormula(value);
-        const result = roundNumber(
-            getFormula(state.sign, state.valueA, state.valueB)
-        );
-
-        if(result.length > 15) {
-            showError(ERROR_RESULT);
-            clearAll();
-            return;
-        } 
-        
-        value 
-        ? setState({
-            ...state,
-            result: result, 
-            valueA:  result,
-            isValueA: true,
-            isValueB: false,
-            finish: true,
-        })
-        : setState({
-            ...state,
-            result: result, 
-            valueA:  result,
-            isValueA: true,
-            isValueB: false,
-        });
-    }
-
-    return calculation;
+	state.result = result
+	state.valueA = result
+	state.isValueA = true
+	state.isValueB = false
+	if (payload) state.finish = true
 }

@@ -1,25 +1,29 @@
-import React from "react";
-import Error from "./UI/error/Error";
-import { useFontSize } from "../hooks/useFontSize";
-import { useEffect } from "react";
+import React from 'react'
+import Error from './UI/error/Error'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { resetTypeErrorCalc } from '../store/slices/calcSlice'
+import { useError } from '../hooks/useError'
 
-const CalcScreen = ({children, error}) => {
+const CalcScreen = () => {
+	const dispatch = useDispatch()
+	const result = useSelector(state => state.calc.result)
+	const typeError = useSelector(state => state.calc.typeError)
+	const [showError, error] = useError()
 
-    const[className, changeFontSize] = useFontSize();
-    
-    useEffect(() => {
-        if(children.length >= 9 && !className) changeFontSize('small__font');
-        if(children.length < 9 && className) changeFontSize('');
-    }, [children]);
-    
+	useEffect(() => {
+		if (typeError) {
+			showError(typeError)
+			dispatch(resetTypeErrorCalc())
+		}
+	}, [typeError, dispatch, showError])
 
-    return (
-
-        <div className={`calc__screen ${className}` }>
-            {error.errorIsActive && <Error>{error.textError}</Error>}
-            {children}
-        </div>
-    );
+	return (
+		<div className={`calc__screen ${result.length >= 9 ? 'small__font' : ''}`}>
+			{error.errorIsActive && <Error>{error.textError}</Error>}
+			{result}
+		</div>
+	)
 }
 
-export default CalcScreen;
+export default CalcScreen

@@ -1,39 +1,23 @@
-import { roundNumber } from "../roundNumber";
+import { ConverterFormula } from '../../formulas/ConverterFormula'
+import { roundNumber } from '../roundNumber'
 
-export const unitConversion = (converter, setConverter, activeUnits, formula) => {
+export const unitConversion = state => {
+	const formula = ConverterFormula.getConverterFormula(
+		state.isValueA ? state.activeUnits.unitA : state.activeUnits.unitB
+	)
 
-    const conversion = (value) => {
-        
-        if(value === '-') return;
-        
-        if(converter.isValueA && converter.valueA) {
-            setConverter({
-                ...converter,
-                valueB: roundNumber(
-                    formula.formula(activeUnits.unitB, value)
-                ) 
-            });
-        }
-        
-        if(converter.isValueB && converter.valueB) {
-            console.log(value)
-            console.log(activeUnits.unitA)
-            setConverter({
-                ...converter,
-                valueA: roundNumber(
-                    formula.formula(activeUnits.unitA, value)
-                )
-            });
-        }
-        
-        if((converter.isValueA && !converter.valueA) || (converter.isValueB && !converter.valueB)) {
-            setConverter({
-                ...converter,
-                valueA: '',
-                valueB: '',
-            });
-        }
-    }
+	if (state.valueA === '-' || state.valueB === '-') return
 
-    return conversion;
+	if (state.isValueA && state.valueA) {
+		state.valueB = roundNumber(formula(state.activeUnits.unitB, state.valueA))
+	}
+
+	if (state.isValueB && state.valueB) {
+		state.valueA = roundNumber(formula(state.activeUnits.unitA, state.valueB))
+	}
+
+	if ((state.isValueA && !state.valueA) || (state.isValueB && !state.valueB)) {
+		state.valueA = ''
+		state.valueB = ''
+	}
 }

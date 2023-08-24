@@ -1,23 +1,14 @@
-export const backspaceBtn = (state, setState) => {
-    const backspace = () => {
-        if(!state.valueA) return;
-        if(state.isValueA){
-            setState({
-                ...state,
-                valueA: state.valueA.slice(0, -1), 
-                result: state.valueA.slice(0, -1),
-                finish: false
-            });
-        }
+export const backspaceBtn = state => {
+	if (!state.valueA) return state
 
-        if(state.isValueB){
-            setState({
-                ...state,
-                valueB: state.valueB.slice(0, -1), 
-                result: state.valueB.slice(0, -1)
-            });
-        }
-    }
+	if (state.isValueA) {
+		state.valueA = state.valueA.slice(0, -1)
+		state.result = state.valueA
+		state.finish = false
+	}
 
-    return backspace;
+	if (state.isValueB) {
+		state.valueB = state.valueB.slice(0, -1)
+		state.result = state.valueB
+	}
 }

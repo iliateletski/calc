@@ -1,38 +1,37 @@
-export class CalcFormula{
-    
-    static getCalcFormula(value = '=') {
-        if(value === '=') {
-            const getFormula = (sign, valueA, valueB) => {
+export class CalcFormula {
+	static getCalcFormula(value = '=') {
+		if (value === '=') {
+			return (sign, valueA, valueB) => {
+				switch (sign) {
+					case '+':
+						return +valueA + +valueB
+					case '-':
+						return valueA - valueB
+					case '*':
+						return valueA * valueB
+					case '/':
+						return valueA / valueB
+					default: return +value
+				}
+			}
+		}
 
-                switch(sign) {
-                    case '+': return ((+valueA) + (+valueB))
-                    case '-': return (valueA - valueB)
-                    case '*': return (valueA * valueB)
-                    case '/': return (valueA / valueB)
-                }
-            }
+		if (value === '%') {
+			return (sign, valueA, valueB) => {
+				if (!sign) return valueA / 100
 
-            return getFormula;
-        }
-
-        if(value === '%') {
-            const getFormula = (sign, valueA, valueB) => {
-
-                if(!sign) return (valueA / 100)
-
-                switch(sign) {
-                    case '+': return ((+valueA) + (+valueA) / 100 * valueB)
-                    case '-': return (valueA - valueA / 100 * valueB)
-                    case '*': return (valueA / 100 * valueB)
-                    case '/': return (valueA * 100 / valueB)
-                }
-
-            }
-
-            return getFormula;
-        }
-    }
+				switch (sign) {
+					case '+':
+						return +valueA + (+valueA / 100) * valueB
+					case '-':
+						return valueA - (valueA / 100) * valueB
+					case '*':
+						return (valueA / 100) * valueB
+					case '/':
+						return (valueA * 100) / valueB
+					default: return +value
+				}
+			}
+		}
+	}
 }
-
-
-

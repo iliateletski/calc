@@ -1,32 +1,34 @@
-import React, { useState } from "react";
-import { NAV_BUTTONS } from "../utils/consts";
-import NavBtn from "./UI/navBtn/NavBtn";
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { setUnits } from '../store/slices/converterSlice'
+import { NAV_BUTTONS } from '../utils/consts'
+import NavBtn from './UI/navBtn/NavBtn'
 
-const Navbar = ({changeUnits}) => {
+const Navbar = () => {
+	const [activeBtn, setActiveBtn] = useState('weight')
+	const dispatch = useDispatch()
 
-    const[activeBtn, setActiveBtn] = useState('weight');
+	const tabClick = value => {
+		setActiveBtn(value)
+	}
 
-    const tabClick = (value) => {
-        setActiveBtn(value);
-    }
-
-    return (
-        <div className="Navbar">
-            {NAV_BUTTONS.map(btn =>
-                    <NavBtn
-                        onClick={value => {
-                            tabClick(value)
-                            changeUnits(value)
-                        }}
-                        isActive={activeBtn === btn.value ? true : false}
-                        key={btn.value}
-                        value={btn.value}  
-                    >
-                        {btn.name}
-                    </NavBtn>
-            )}
-        </div>
-    )
+	return (
+		<div className='Navbar'>
+			{NAV_BUTTONS.map(btn => (
+				<NavBtn
+					onClick={value => {
+						tabClick(value)
+						dispatch(setUnits(value))
+					}}
+					isActive={activeBtn === btn.value ? true : false}
+					key={btn.value}
+					value={btn.value}
+				>
+					{btn.name}
+				</NavBtn>
+			))}
+		</div>
+	)
 }
 
-export default Navbar;
+export default Navbar

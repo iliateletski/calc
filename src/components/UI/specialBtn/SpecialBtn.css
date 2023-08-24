@@ -1,20 +1,20 @@
 .special_btn {
-  width: 24px;
-  height: 28px;
-  padding: 0;
-  background: transparent;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all .1s;
+	width: 24px;
+	height: 28px;
+	padding: 0;
+	background: transparent;
+	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.1s;
 }
 
-.special_btn:hover{
-  filter: brightness(120%);
+.special_btn:hover {
+	filter: brightness(120%);
 }
 
-.special_btn:active{
-  filter: brightness(80%);
-  transform: scale(0.8);
+.special_btn:active {
+	filter: brightness(80%);
+	transform: scale(0.8);
 }
